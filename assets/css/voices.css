@@ -96,3 +96,12 @@
 .pod-go{display:inline-block;margin-top:18px;font:600 .95rem var(--display);padding:10px 16px;background:var(--sky);color:#16203F}
 .pod-card:hover .pod-go{background:#fff}
 @media (max-width:520px){.pod-card{flex-direction:column;align-items:flex-start}}
+
+/* Two-photo gallery */
+.gal.gal2{grid-template-columns:1.78fr 1fr;align-items:stretch}
+.gal.gal2 img{aspect-ratio:auto;height:100%}
+.gal.gal2 img:first-child{grid-column:auto;grid-row:auto;aspect-ratio:16/9}
+.gal.gal2 img:last-child{object-position:65% center}
+@media (max-width:600px){.gal.gal2{grid-template-columns:1fr}.gal.gal2 img{aspect-ratio:3/2}}
+.facts.facts5{grid-template-columns:repeat(5,minmax(0,1fr))}
+@media (max-width:760px){.facts.facts5{grid-template-columns:repeat(2,minmax(0,1fr))}}
