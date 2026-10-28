@@ -1,0 +1,44 @@
+/* Home hero spotlight: three featured pieces, one from each area of work */
+.hspot{display:flex;flex-direction:column;gap:12px;min-width:0}
+.spot-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px}
+.spot-tab{position:relative;display:block;text-align:left;padding:10px 12px 12px;background:rgba(255,255,255,.08);border:0;color:var(--on-blue-soft);cursor:pointer;font:inherit;overflow:hidden;transition:background .2s,color .2s}
+.spot-tab:hover{background:rgba(255,255,255,.16);color:#fff}
+.spot-tab .k{display:block;font:600 .66rem "IBM Plex Mono",monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--sky);opacity:.85}
+.spot-tab .t{display:block;margin-top:4px;font:600 .9rem/1.2 "Poppins",sans-serif}
+.spot-tab[aria-selected="true"]{background:var(--sky);color:#16203F}
+.spot-tab[aria-selected="true"] .k{color:#2E3F80;opacity:1}
+.spot-tab .bar{position:absolute;left:0;bottom:0;height:3px;width:0;background:#16203F}
+.hspot.playing .spot-tab[aria-selected="true"] .bar{animation:spotbar var(--spot-ms,7000ms) linear forwards}
+@keyframes spotbar{from{width:0}to{width:100%}}
+.spot-tab:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+
+.spot-stage{position:relative;clip-path:polygon(6% 0,100% 0,100% 100%,0 100%);background:#16203F}
+.slide{display:none}
+.slide.on{display:block;animation:spotin .5s ease}
+@keyframes spotin{from{opacity:0}to{opacity:1}}
+.slide-card{position:relative;display:block;color:#fff;text-decoration:none;overflow:hidden}
+.slide-card img{display:block;width:100%;aspect-ratio:4/3.2;object-fit:cover;opacity:.85;transition:transform .6s ease,opacity .3s}
+.slide-card::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(22,32,63,.96) 0%,rgba(22,32,63,.6) 42%,rgba(22,32,63,0) 72%)}
+.slide-card:hover img{transform:scale(1.04);opacity:.95}
+.slide-card .tag{position:absolute;z-index:2;top:16px;right:16px;font:600 .7rem "IBM Plex Mono",monospace;letter-spacing:.14em;text-transform:uppercase;background:var(--sky);color:#16203F;padding:6px 10px}
+.slide-card .play{position:absolute;z-index:2;left:50%;top:40%;transform:translate(-50%,-50%);width:clamp(68px,8vw,96px);height:clamp(68px,8vw,96px);border-radius:50%;background:var(--sky);display:grid;place-items:center;animation:hlpulse 2.4s ease-out infinite;transition:transform .25s}
+.slide-card .play svg{width:38%;height:38%;margin-left:8%;fill:#16203F}
+.slide-card:hover .play{transform:translate(-50%,-50%) scale(1.08)}
+.slide-card .cap{position:absolute;z-index:2;left:clamp(34px,5vw,56px);right:20px;bottom:20px}
+.slide-card .eyebrow{color:var(--sky)}
+.slide-card b{display:block;margin-top:6px;font:700 clamp(1.25rem,2.3vw,1.8rem)/1.12 "Poppins",sans-serif;letter-spacing:-.02em}
+.slide-card small{display:block;margin-top:6px;color:#D6E2F7;font-size:.95rem;max-width:44ch}
+.slide-card .go{display:inline-block;margin-top:12px;padding:8px 14px;background:var(--sky);color:#16203F;font:600 .88rem "Poppins",sans-serif}
+.slide-card:hover .go{background:#fff}
+.slide-card:focus-visible{outline:3px solid var(--teal);outline-offset:-3px}
+.slide .film-player{aspect-ratio:16/9;background:#000}
+.slide .film-player iframe{width:100%;height:100%;border:0;display:block}
+
+.spot-nav{display:flex;justify-content:flex-end;gap:8px}
+.spot-nav button{width:36px;height:36px;border-radius:50%;border:1.5px solid rgba(255,255,255,.4);background:transparent;color:#fff;cursor:pointer;font-size:1rem;line-height:1}
+.spot-nav button:hover{background:rgba(255,255,255,.12)}
+.spot-nav button:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+
+@media (max-width:860px){.spot-stage{clip-path:none}}
+@media (max-width:600px){.spot-tab{padding:8px 8px 10px}.spot-tab .t{font-size:.78rem}.spot-tab .k{font-size:.58rem;letter-spacing:.08em}.slide-card img{aspect-ratio:4/4.4}.slide-card .play{top:32%;width:64px;height:64px}.slide-card .cap{left:16px}.slide-card b{font-size:1.25rem}.slide-card small{font-size:.88rem}}
+@media (prefers-reduced-motion:reduce){.slide.on{animation:none}.slide-card .play{animation:none}}
