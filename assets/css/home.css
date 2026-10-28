@@ -1,0 +1,25 @@
+/* Home page: tighter spacing, clearer section breaks and highlighted key lines */
+
+/* Highlighter-pen effect behind key phrases */
+mark.hi{background:linear-gradient(transparent 52%,var(--sky) 52%,var(--sky) 92%,transparent 92%);color:inherit;padding:0 .08em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) mark.hi{background:linear-gradient(transparent 52%,rgba(116,198,202,.38) 52%,rgba(116,198,202,.38) 92%,transparent 92%)}}
+:root[data-theme="dark"] mark.hi{background:linear-gradient(transparent 52%,rgba(116,198,202,.38) 52%,rgba(116,198,202,.38) 92%,transparent 92%)}
+
+/* Why young people: less space below */
+section.why{padding-bottom:clamp(40px,5vw,64px)}
+
+/* "Three connected areas" becomes a banner that leads into the next section */
+.lenses-note{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:clamp(28px,3.5vw,40px);padding:16px clamp(18px,2.4vw,28px);background:var(--blue-deep);color:#fff;font:600 1.05rem/1.35 "Poppins",sans-serif}
+.lenses-note::after{content:"\2193";flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--sky);color:#16203F;font-size:1.05rem}
+
+/* Theory of change sits on a tinted panel so it reads as its own block */
+.tocx{background:var(--paper);padding-block:clamp(48px,6vw,80px)}
+
+/* "The change we seek" becomes a highlighted banner */
+.tocx-goal{margin-top:clamp(40px,5vw,56px);border-top:0;padding:clamp(22px,3vw,34px) clamp(20px,3vw,36px);background:var(--blue);color:#fff}
+.tocx-goal .k{color:var(--sky)}
+.tocx-goal .v{color:#fff;max-width:46ch}
+.tocx-goal .v mark{background:var(--sky);color:#16203F;padding:.04em .3em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+/* Youth Leadership: less space above now that the panel separates it */
+#youth-leadership{padding-top:clamp(48px,6vw,80px)}
