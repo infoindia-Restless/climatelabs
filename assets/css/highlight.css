@@ -1,0 +1,42 @@
+/* Home page highlight: a new film featured at the top for a limited time.
+   highlight.js hides it automatically after the date in data-until. */
+
+/* Slim announcement ribbon under the top bar */
+.hl-ribbon{display:block;background:var(--sky);color:#16203F;text-decoration:none;font:500 .95rem "Poppins",sans-serif}
+.hl-ribbon .wrap{display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;padding-block:10px;text-align:center}
+.hl-ribbon .tag{font:600 .7rem "IBM Plex Mono",monospace;letter-spacing:.14em;text-transform:uppercase;background:#16203F;color:var(--sky);padding:4px 9px}
+.hl-ribbon .go{font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.hl-ribbon:hover .go{text-decoration-thickness:2px}
+
+/* Featured film in the hero, in place of the mural photo */
+.hl-film{position:relative;display:block;color:#fff;text-decoration:none;background:#16203F;clip-path:polygon(9% 0,100% 0,100% 100%,0 100%);overflow:hidden}
+.hl-film img{display:block;width:100%;aspect-ratio:4/3.4;object-fit:cover;opacity:.8;transition:transform .6s ease,opacity .3s}
+.hl-film::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(22,32,63,.95) 0%,rgba(22,32,63,.55) 45%,rgba(22,32,63,0) 75%)}
+.hl-film .new{position:absolute;z-index:2;top:18px;right:18px;font:600 .72rem "IBM Plex Mono",monospace;letter-spacing:.14em;text-transform:uppercase;background:var(--sky);color:#16203F;padding:6px 11px;animation:hlblink 2.4s ease-in-out infinite}
+.hl-film .play{position:absolute;z-index:2;left:50%;top:42%;transform:translate(-50%,-50%);width:clamp(72px,9vw,104px);height:clamp(72px,9vw,104px);border-radius:50%;background:var(--sky);display:grid;place-items:center;animation:hlpulse 2.4s ease-out infinite;transition:transform .25s}
+.hl-film .play svg{width:38%;height:38%;margin-left:8%;fill:#16203F}
+.hl-film .cap{position:absolute;z-index:2;left:clamp(40px,6vw,64px);right:22px;bottom:22px}
+.hl-film .eyebrow{color:var(--sky)}
+.hl-film b{display:block;margin-top:6px;font:700 clamp(1.3rem,2.4vw,1.9rem)/1.1 "Poppins",sans-serif;letter-spacing:-.02em}
+.hl-film small{display:block;margin-top:6px;color:#D6E2F7;font-size:.95rem}
+.hl-film:hover img{transform:scale(1.04);opacity:.9}
+.hl-film:hover .play{transform:translate(-50%,-50%) scale(1.08)}
+.hl-film:focus-visible{outline:3px solid var(--teal);outline-offset:4px}
+.rdhero .film-player{aspect-ratio:16/9}
+.rdhero .film-player iframe{width:100%;height:100%;border:0;display:block}
+
+/* Hero call-to-action next to the lede */
+.hl-cta{display:inline-flex;align-items:center;gap:10px;margin-top:26px;padding:12px 20px;background:var(--sky);color:#16203F;text-decoration:none;font:600 .95rem "Poppins",sans-serif}
+.hl-cta svg{width:14px;height:14px;fill:#16203F}
+.hl-cta:hover{background:#fff}
+
+@keyframes hlpulse{0%{box-shadow:0 0 0 0 rgba(175,225,244,.6)}80%{box-shadow:0 0 0 24px rgba(175,225,244,0)}100%{box-shadow:0 0 0 0 rgba(175,225,244,0)}}
+@keyframes hlblink{0%,100%{opacity:1}50%{opacity:.55}}
+@media (max-width:860px){.hl-film,.hl-film img{clip-path:none}}
+@media (max-width:600px){.hl-film img{aspect-ratio:1/1}.hl-film .play{top:34%;width:68px;height:68px}.hl-film .cap{left:18px}.hl-film b{font-size:1.35rem}.hl-ribbon{font-size:.88rem}.hl-ribbon .wrap{gap:6px 10px;padding-block:8px}}
+@media (prefers-reduced-motion:reduce){.hl-film .new,.hl-film .play{animation:none}}
+
+/* After the end date */
+.hl-done .hl-on{display:none!important}
+.hl-off{display:none}
+.hl-done .hl-off{display:block}
